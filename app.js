@@ -2,6 +2,7 @@
 
 const express = require("express");
 const app = express();
+const { findMean, findMedian, findMode } = require('./stats');
 
 // useful error class to throw
 const { NotFoundError } = require("./expressError");
