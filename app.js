@@ -14,37 +14,37 @@ const MISSING = "Expected key `nums` with comma-separated list of numbers.";
 
 /** Finds mean of nums in qs: returns {operation: "mean", result } */
 app.get('/mean', function(req, res) {
-  if (!req.query.nums) throw new BadRequestError('nums are required');
+  if (!req.query.nums) throw new BadRequestError(MISSING);
   const numsStr = req.query.nums.split(',');
   const nums = convertStrNums(numsStr);
   const mean = findMean(nums);
   return res.json({
     'operation': 'mean',
-    mean
+    'value': mean
   });
 });
 
 /** Finds median of nums in qs: returns {operation: "median", result } */
 app.get('/median', function(req, res) {
-  if (!req.query.nums) throw new BadRequestError('nums are required');
+  if (!req.query.nums) throw new BadRequestError(MISSING);
   const numsStr = req.query.nums.split(',');
   const nums = convertStrNums(numsStr);
   const median = findMedian(nums);
   return res.json({
     'operation': 'median',
-    median
+    'value': median
   });
 });
 
 /** Finds mode of nums in qs: returns {operation: "mode", result } */
 app.get('/mode', function(req, res) {
-  if (!req.query.nums) throw new BadRequestError('nums are required');
+  if (!req.query.nums) throw new BadRequestError(MISSING);
   const numsStr = req.query.nums.split(',');
   const nums = convertStrNums(numsStr);
   const mode = findMode(nums);
   return res.json({
     'operation': 'mode',
-    mode
+    'value': mode
   });
 });
 
